@@ -1,10 +1,12 @@
-﻿namespace Finanzas
+﻿namespace Finanzas;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
+        Routing.RegisterRoute(nameof(SearchEquationPage), typeof(SearchEquationPage));
+        Routing.RegisterRoute(nameof(DetailConceptPage), typeof(DetailConceptPage));
     }
 }

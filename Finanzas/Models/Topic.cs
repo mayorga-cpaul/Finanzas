@@ -3,6 +3,9 @@
 public partial class Topic : ObservableObject
 {
     [ObservableProperty]
+    private int _topicId;
+
+    [ObservableProperty]
     private string _name;
 
     [ObservableProperty]
@@ -16,4 +19,7 @@ public partial class Topic : ObservableObject
 
     [ObservableProperty]
     private Color _color;
+
+    [ObservableProperty]
+    private IEnumerable<Concept> _concepts;
 }

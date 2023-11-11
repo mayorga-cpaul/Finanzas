@@ -10,3 +10,4 @@ global using Finanzas.Extensions;
 global using Finanzas.Services;
 global using CommunityToolkit.Maui;
 global using Finanzas.Pages;
+global using Microsoft.Extensions.Logging;

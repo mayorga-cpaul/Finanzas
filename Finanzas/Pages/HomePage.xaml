@@ -66,9 +66,9 @@
                             WidthRequest="30"
                             HeightRequest="30"
                             Source="search_interface_symbol.png">
-                            <!--<Image.GestureRecognizers>
+                            <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding GoToSearchPageCommand}"/>
-                            </Image.GestureRecognizers>-->
+                            </Image.GestureRecognizers>
                         </Image>
                     </Grid>
 
@@ -77,7 +77,7 @@
                         Grid.Column="1">
                         <StackLayout 
                             Orientation="Horizontal"
-                            BindableLayout.ItemsSource="{Binding Equations}">
+                            BindableLayout.ItemsSource="{Binding Concepts}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <templates:SuggestedEquationTemplate />

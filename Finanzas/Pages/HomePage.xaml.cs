@@ -5,6 +5,7 @@ public partial class HomePage : ContentPage
 	public HomePage(HomePageViewModel ViewModel)
 	{
 		InitializeComponent();
-		BindingContext = ViewModel;
+        NavigationPage.SetHasNavigationBar(this, false);
+        BindingContext = ViewModel;
 	}
 }

@@ -1,18 +1,21 @@
 ﻿namespace Finanzas.Models;
 
-public partial class Equation : ObservableObject
+public partial class Concept : ObservableObject
 {
+    [ObservableProperty]
+    private int _conceptId;
+
     [ObservableProperty]
     private int _topicId;
 
     [ObservableProperty]
-    private string _equationName;
+    private string _title;
+
+    [ObservableProperty]
+    private string _conceptText;
 
     [ObservableProperty]
     private string _image;
-
-    [ObservableProperty]
-    private string _description;
 
     [ObservableProperty]
     private Color _color;

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finanzas.Pages.SearchEquationPage"
+             xmlns:models="clr-namespace:Finanzas.Models"
+             xmlns:vm="clr-namespace:Finanzas.ViewModels"
+             x:DataType="vm:SearchPageViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:templates="clr-namespace:Finanzas.Pages.Templates"
+             Shell.BackgroundColor="{StaticResource Primary}">
+
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                                   StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="280"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="36, 48, 0, 0" />
+            </Style>
+
+            <Style x:Key="SuggestedContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="36, 24, 0, 24" />
+            </Style>
+
+            <Style x:Key="SearchContainerStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="52" />
+                <Setter Property="WidthRequest" Value="52" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+            </Style>
+
+            <Color x:Key="SearchBackgroundColor">#868ACB</Color>
+
+            <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="12, 24, 12, 0" />
+            </Style>
+
+            <Style x:Key="RecentChatAdornerStyle" TargetType="BoxView">
+                <Setter Property="Color" Value="White" />
+                <Setter Property="CornerRadius" Value="18, 18, 0, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Shell.TitleView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+            <Label Text="Conceptos" TextColor="White" FontAttributes="Bold" FontSize="30"/>
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Triggers>
+        <DataTrigger TargetType="ContentPage"
+                     Binding="{Binding FromSearch}"
+                     Value="True">
+            <Setter Property="Title" Value="Search for results"/>
+        </DataTrigger>
+    </ContentPage.Triggers>
+
+    <Grid RowDefinitions="Auto, *">
+        <SearchBar Grid.Row="0" 
+                   x:Name="searchBar"
+                   Placeholder="Busca tu concepto.."
+                   PlaceholderColor="#546888"
+                   CancelButtonColor="#546888"
+                   TextColor="#546888"
+                   HorizontalOptions="Center"
+                   SearchCommand="{Binding SearchConceptsCommand}"
+                   SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
+                   TextChanged="searchBar_TextChanged"/>
+        <ScrollView Grid.Row="1"
+                    Margin="5">
+            <VerticalStackLayout>
+                <BoxView
+                    Style="{StaticResource RecentChatAdornerStyle}"/>
+                <CollectionView ItemsSource="{Binding Concepts}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                      ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <templates:ConceptItemTemplate/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                        
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <BoxView 
+                                HeightRequest="100"
+                                Color="Transparent"/>
+                            <Label 
+                                Text="No results found"
+                                FontSize="25"
+                                TextColor="Gray"
+                                HorizontalTextAlignment="Center">
+                                <Label.Triggers>
+                                    <DataTrigger 
+                                        TargetType="Label"
+                                        Binding="{Binding Searching}">
+                                        <Setter 
+                                            Property="Text"
+                                            Value="Searching..."/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator Grid.RowSpan="2"
+                           IsRunning="{Binding Searching}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Color="DarkGoldenrod"/>
+    </Grid>
+</ContentPage>
