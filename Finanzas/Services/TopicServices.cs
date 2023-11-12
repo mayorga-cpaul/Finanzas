@@ -2,6 +2,7 @@
 
 public class TopicServices : ITopicServices
 {
+    Random random = new Random();
     public Concept GetConceptById(int ConceptId) => 
         DataOnMemory.Concepts.Where(C => C.ConceptId == ConceptId).FirstOrDefault();
 
@@ -11,8 +12,8 @@ public class TopicServices : ITopicServices
 
     public IEnumerable<Topic> GetTopics() => DataOnMemory.Topics;
 
-    public IEnumerable<Concept> SearchConcept(string SearchTerm = "") =>
+    public IEnumerable<Concept> SearchConcept(string SearchTerm) =>
         string.IsNullOrEmpty(SearchTerm)
         ? DataOnMemory.Concepts.Take(10)
-        : DataOnMemory.Concepts.Where(p => p.ConceptText.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase));
+        : DataOnMemory.Concepts.Where(p => p.ConceptText.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)).Take(10);
 }

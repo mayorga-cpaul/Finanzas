@@ -6,6 +6,7 @@ public static class ViewModelExtensions
     {
         Builder.Services.AddSingleton<HomePageViewModel>();
         Builder.Services.AddSingleton<SearchPageViewModel>();
+        
         return Builder;
     }
 }

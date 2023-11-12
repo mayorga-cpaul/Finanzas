@@ -29,12 +29,13 @@ public static class DataOnMemory
     public static IEnumerable<Concept> Concepts =>
         new List<Concept>()
         {
-            new Concept { Image = "calculator.png"   , Color = new Color(255, 165, 0), ConceptId = 1,  TopicId = 1, Title = "Bonos Corporativos", ConceptText = "Bonos emitidos por empresas para financiar proyectos o actividades comerciales." },
-            new Concept { Image = "blackboard.png"   , Color = new Color(245, 165, 0), ConceptId = 2,  TopicId = 1, Title = "Bonos del Gobierno", ConceptText = "Bonos emitidos por el gobierno para financiar gastos gubernamentales." },
-            new Concept { Image = "presentation.png" , Color = new Color(240, 165, 0), ConceptId = 3,  TopicId = 1, Title = "Cupón de Bonos", ConceptText = "El interés periódico pagado por los bonos a sus tenedores." },
-            new Concept { Image = "formul.png"       , Color = new Color(235, 165, 0), ConceptId = 4,  TopicId = 1, Title = "Vencimiento de Bonos", ConceptText = "La fecha en la que el principal de un bono se debe pagar al inversor." },
-            new Concept { Image = "formula.png"      , Color = new Color(255, 150, 0), ConceptId = 5,  TopicId = 1, Title = "Tasa de Interés de Bonos", ConceptText = "La tasa de interés que un bono paga a sus tenedores." },
-            new Concept { Image = "calculator.png"   , Color = new Color(255, 155, 0), ConceptId = 6,  TopicId = 1, Title = "Calificación de Bonos", ConceptText = "Evaluación de la calidad crediticia de un bono por agencias de calificación." },
+            new Concept { Image = "calculator.png"   , Color = new Color(255, 165, 0), ConceptId = 1,  TopicId = 1, Title = "Tasa de interés", ConceptText = "Se aplica normalmente a instrumentos de deuda como los préstamos bancarios o bonos; es la compensación que paga el prestatario de fondos al prestamista; desde el punto de vista del prestatario, es el costo de solicitar fondos en préstamo." },
+            new Concept { Image = "blackboard.png"   , Color = new Color(245, 165, 0), ConceptId = 2,  TopicId = 1, Title = "Rendimiento Requerido", ConceptText = "rendimiento requerido Por lo general se aplica a los instrumentos patrimoniales, como las acciones comunes; es el costo de los fondos obtenidos por medio de la venta de una participación en la propiedad." },
+            new Concept { Image = "presentation.png" , Color = new Color(240, 165, 0), ConceptId = 3,  TopicId = 1, Title = "Inflación", ConceptText = "inflación Tendencia a la alza en los precios de la mayoría de los bienes y servicios." },
+            new Concept { Image = "formul.png"       , Color = new Color(235, 165, 0), ConceptId = 4,  TopicId = 1, Title = "Preferencia de liquidez", ConceptText = "preferencia de liquidez Tendencia general de los inversionistas al preferir los valores a corto plazo (es decir, los que tienen mayor liquidez)." },
+            new Concept { Image = "formula.png"      , Color = new Color(255, 150, 0), ConceptId = 5,  TopicId = 1, Title = "Tasa de Interés real", ConceptText = "Tasa que crea un equilibrio entre la oferta de ahorros y la demanda de fondos de inversión en un mundo perfecto, sin inflación, donde los proveedores y los demandantes de fondos no tienen preferencias de liquidez y no existe riesgo alguno." },
+            new Concept { Image = "calculator.png"   , Color = new Color(255, 155, 0), ConceptId = 6,  TopicId = 1, Title = "Tasa de interés nominal", ConceptText = "Tasa de interés que realmente cobra el proveedor de fondos y paga el demandante de fondo." },
+
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 110, 0), ConceptId = 7,  TopicId = 1, Title = "Prima de Riesgo", ConceptText = "La cantidad adicional de rendimiento exigida por los inversores para asumir un riesgo mayor." },
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 140, 0), ConceptId = 8,  TopicId = 1, Title = "Rendimiento al Vencimiento", ConceptText = "La tasa de rendimiento anual que un inversionista ganaría si el bono se mantiene hasta su vencimiento." },
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 150, 0), ConceptId = 9,  TopicId = 1, Title = "Bono Convertible", ConceptText = "Un bono que se puede convertir en acciones de la empresa emisora." },
@@ -104,11 +105,5 @@ public static class DataOnMemory
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 140, 0), ConceptId = 73, TopicId = 5, Title = "Giro de Cuentas por Cobrar", ConceptText = "Muestra la rapidez con la que una empresa convierte sus cuentas por cobrar en efectivo." },
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 150, 0), ConceptId = 74, TopicId = 5, Title = "Razón de Capital de Trabajo", ConceptText = "Evalúa la capacidad de una empresa para cubrir sus obligaciones a corto plazo mediante activos corrientes." },
             new Concept { Image = "money_bag.png"    , Color = new Color(255, 150, 0), ConceptId = 75, TopicId = 5, Title = "Razón de Eficiencia de Capital", ConceptText = "Mide la eficiencia de una empresa en la utilización de su capital para generar ingresos." }
-        };
-
-    public static IEnumerable<IEquation> Equations =>
-        new List<IEquation>()
-        {
-
         };
 }

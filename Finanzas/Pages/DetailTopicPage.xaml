@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finanzas.Pages.DetailTopicPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="DetailTopicPage"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        <ImageButton Source="left"
+             VerticalOptions="Start"
+             HorizontalOptions="Start"
+             Margin="15"
+             HeightRequest="30"
+             Clicked="ImageButton_Clicked"
+             WidthRequest="30">
+            <ImageButton.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+            </ImageButton.Behaviors>
+
+        </ImageButton>
+    </VerticalStackLayout>
+</ContentPage>

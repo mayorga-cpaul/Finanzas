@@ -7,6 +7,8 @@ public static class PagesExtensions
         Builder.Services.AddSingleton<HomePage>();
         Builder.Services.AddSingleton<SearchEquationPage>();
         Builder.Services.AddSingleton<DetailConceptPage>();
+        Builder.Services.AddSingleton<DetailTopicPage>();
+
         return Builder;
     }
 }

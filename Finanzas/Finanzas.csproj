@@ -57,6 +57,7 @@
 	  <None Remove="Resources\Images\finance.png" />
 	  <None Remove="Resources\Images\formul.png" />
 	  <None Remove="Resources\Images\formula.png" />
+	  <None Remove="Resources\Images\left.png" />
 	  <None Remove="Resources\Images\magnifying_glass.png" />
 	  <None Remove="Resources\Images\money.png" />
 	  <None Remove="Resources\Images\money_bag.png" />
@@ -73,6 +74,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\DetailConceptPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\DetailTopicPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">

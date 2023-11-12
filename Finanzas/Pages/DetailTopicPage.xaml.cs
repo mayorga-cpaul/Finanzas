@@ -1,16 +1,11 @@
 namespace Finanzas.Pages;
 
-public partial class DetailConceptPage : ContentPage
+public partial class DetailTopicPage : ContentPage
 {
-	public DetailConceptPage()
+	public DetailTopicPage()
 	{
 		InitializeComponent();
 	}
-
-    private async void ImageButton_Clicked(object sender, EventArgs e)
-    {
-		await Shell.Current.GoToAsync($"{nameof(SearchEquationPage)}");
-    }
 
     protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
     {
@@ -21,5 +16,10 @@ public partial class DetailConceptPage : ContentPage
             StatusBarColor = Color.FromHex("512BD4"),
             StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent
         });
+    }
+
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"///{nameof(HomePage)}");
     }
 }

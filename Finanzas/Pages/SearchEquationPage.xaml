@@ -7,7 +7,8 @@
              x:DataType="vm:SearchPageViewModel"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:templates="clr-namespace:Finanzas.Pages.Templates"
-             Shell.BackgroundColor="{StaticResource Primary}">
+             Shell.BackgroundColor="{StaticResource Primary}"
+             Shell.NavBarIsVisible="False">
 
 
     <ContentPage.Behaviors>
@@ -50,7 +51,7 @@
     
     <Shell.TitleView>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-            <Label Text="Conceptos" TextColor="White" FontAttributes="Bold" FontSize="30"/>
+            <Label Text="Conceptos" TextColor="White" FontSize="26"/>
         </StackLayout>
     </Shell.TitleView>
 
@@ -63,16 +64,34 @@
     </ContentPage.Triggers>
 
     <Grid RowDefinitions="Auto, *">
-        <SearchBar Grid.Row="0" 
-                   x:Name="searchBar"
-                   Placeholder="Busca tu concepto.."
-                   PlaceholderColor="#546888"
-                   CancelButtonColor="#546888"
-                   TextColor="#546888"
-                   HorizontalOptions="Center"
-                   SearchCommand="{Binding SearchConceptsCommand}"
-                   SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
-                   TextChanged="searchBar_TextChanged"/>
+        <ImageButton 
+            Source="left"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Margin="15"
+            HeightRequest="30"
+            Clicked="ImageButton_Clicked"
+            WidthRequest="30">
+            <ImageButton.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+            </ImageButton.Behaviors>
+        </ImageButton>
+        
+        <Label Text="Conceptos" HorizontalOptions="Center" FontSize="20" TextColor="{StaticResource Primary}" Padding="0,15"/>
+
+        <SearchBar 
+            Margin="0,60,0,0"
+            Grid.Row="0" 
+            x:Name="searchBar"
+            Placeholder="Busca tu concepto.."
+            PlaceholderColor="{StaticResource Primary}"
+            CancelButtonColor="{StaticResource Primary}"
+            TextColor="{StaticResource Primary}"
+            HorizontalTextAlignment="Center"
+            HorizontalOptions="CenterAndExpand"
+            SearchCommand="{Binding SearchConceptsCommand}"
+            SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
+            TextChanged="searchBar_TextChanged"/>
         <ScrollView Grid.Row="1"
                     Margin="5">
             <VerticalStackLayout>
@@ -81,15 +100,15 @@
                 <CollectionView ItemsSource="{Binding Concepts}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
-                                      ItemSpacing="10"/>
+                                      ItemSpacing="8"/>
                     </CollectionView.ItemsLayout>
-                    
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <templates:ConceptItemTemplate/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                        
+
                     <CollectionView.EmptyView>
                         <VerticalStackLayout HorizontalOptions="Center">
                             <BoxView 

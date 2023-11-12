@@ -11,3 +11,6 @@ global using Finanzas.Services;
 global using CommunityToolkit.Maui;
 global using Finanzas.Pages;
 global using Microsoft.Extensions.Logging;
+global using Finanzas.Equations;
+global using Finanzas.Tools;
+global using Finanzas.Results;

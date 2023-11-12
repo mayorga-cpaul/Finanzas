@@ -15,5 +15,5 @@ public partial class Equation : ObservableObject
     private string _description;
 
     [ObservableProperty]
-    private Color _color;
+    private IEquation _financeEquation;
 }

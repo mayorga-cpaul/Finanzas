@@ -14,9 +14,6 @@ public partial class HomePageViewModel : ObservableObject
         Topics = new(TopicServices.GetTopics());
     }
 
-    [ObservableProperty] 
-    private Topic _selectedTopic;
-
     [ObservableProperty]
     private ObservableCollection<Topic> _topics;
 
@@ -30,5 +27,23 @@ public partial class HomePageViewModel : ObservableObject
     public async Task GoToSearchPageAsync()
     {
         await NavigationServices.NavigateToAsync(nameof(SearchEquationPage));
+    }
+
+    [RelayCommand]
+    public async Task DetailAsync(Topic Topic)
+    {
+        if (Topic  != null)
+        {
+            await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(Topic)).Value(Topic));
+        }
+    }
+
+    [RelayCommand]
+    public async Task SuggestedAsync(Concept Concept)
+    {
+        if (Concept != null)
+        {
+            await NavigationServices.NavigateToAsync(nameof(DetailConceptPage), Key(nameof(Concept)).Value(Concept));
+        }
     }
 }

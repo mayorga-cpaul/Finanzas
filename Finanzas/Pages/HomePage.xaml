@@ -72,7 +72,7 @@
                         </Image>
                     </Grid>
 
-                    <!-- SUGGESTED EQUATIONS -->
+                    <!-- SUGGESTED CONCEPTS -->
                     <ScrollView
                         Grid.Column="1">
                         <StackLayout 

@@ -12,7 +12,7 @@ public partial class SearchPageViewModel : ObservableObject
     {
         this.NavigationService = NavigationService;
         this.TopicServices = TopicServices;
-        Concepts = new(TopicServices.SearchConcept());
+        Concepts = new(TopicServices.SearchConcept("A"));
     }
 
     [ObservableProperty]
@@ -50,6 +50,16 @@ public partial class SearchPageViewModel : ObservableObject
         {
             await NavigationService.NavigateToAsync(nameof(DetailConceptPage),
                Key(nameof(Models.Concept)).Value(SelectedConcept));
+        }
+    }
+
+    [RelayCommand]
+    private async Task DetailAsync(Concept concept)
+    {
+        if (concept != null)
+        {
+            await NavigationService.NavigateToAsync(nameof(DetailConceptPage),
+               Key(nameof(Concept)).Value(concept));
         }
     }
 }
