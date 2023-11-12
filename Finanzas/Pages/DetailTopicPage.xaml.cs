@@ -2,9 +2,10 @@ namespace Finanzas.Pages;
 
 public partial class DetailTopicPage : ContentPage
 {
-	public DetailTopicPage()
+	public DetailTopicPage(SearchPageViewModel ViewModel)
 	{
 		InitializeComponent();
+        BindingContext = ViewModel;
 	}
 
     protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
@@ -21,5 +22,10 @@ public partial class DetailTopicPage : ContentPage
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync($"///{nameof(HomePage)}");
+    }
+
+    private async void ButtonView_Tapped(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"{nameof(BondPage)}");
     }
 }

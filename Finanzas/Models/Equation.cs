@@ -11,8 +11,7 @@ public partial class Equation : ObservableObject
     [ObservableProperty]
     private string _image;
 
-    [ObservableProperty]
-    private string _description;
+    [ObservableProperty]    private string _description;
 
     [ObservableProperty]
     private IEquation _financeEquation;

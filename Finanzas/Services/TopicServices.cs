@@ -14,6 +14,6 @@ public class TopicServices : ITopicServices
 
     public IEnumerable<Concept> SearchConcept(string SearchTerm) =>
         string.IsNullOrEmpty(SearchTerm)
-        ? DataOnMemory.Concepts.Take(10)
-        : DataOnMemory.Concepts.Where(p => p.ConceptText.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)).Take(10);
+        ? DataOnMemory.Concepts.Take(7)
+        : DataOnMemory.Concepts.Where(p => p.ConceptText.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)).Take(7);
 }

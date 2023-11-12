@@ -1,4 +1,7 @@
-﻿namespace Finanzas;
+﻿using Microcharts.Maui;
+using UraniumUI;
+
+namespace Finanzas;
 
 public static class MauiProgram
 {
@@ -6,7 +9,8 @@ public static class MauiProgram
     {
         var Builder = MauiApp.CreateBuilder();
         Builder.UseMauiApp<App>().UsePages().UseViewModels()
-               .UseMauiCommunityToolkit().UseServices().UseFonts();
+               .UseMauiCommunityToolkit().UseServices().UseFonts()
+               .UseUraniumUI().UseUraniumUIMaterial().UseMicrocharts();
 
 #if DEBUG
         Builder.Logging.AddDebug();

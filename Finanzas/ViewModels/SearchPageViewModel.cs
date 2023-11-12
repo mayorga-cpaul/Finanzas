@@ -42,17 +42,6 @@ public partial class SearchPageViewModel : ObservableObject
         Searching = false;
     }
 
-
-    [RelayCommand]
-    private async Task GoToDetailPage()
-    {
-        if (SelectedConcept != null)
-        {
-            await NavigationService.NavigateToAsync(nameof(DetailConceptPage),
-               Key(nameof(Models.Concept)).Value(SelectedConcept));
-        }
-    }
-
     [RelayCommand]
     private async Task DetailAsync(Concept concept)
     {

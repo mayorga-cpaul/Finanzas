@@ -9,7 +9,7 @@ public partial class DetailConceptPage : ContentPage
 
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
-		await Shell.Current.GoToAsync($"{nameof(SearchEquationPage)}");
+		await Shell.Current.GoToAsync($"///{nameof(HomePage)}");
     }
 
     protected override void OnNavigatedFrom(NavigatedFromEventArgs args)

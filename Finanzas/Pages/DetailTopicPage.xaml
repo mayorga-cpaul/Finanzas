@@ -2,21 +2,188 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Finanzas.Pages.DetailTopicPage"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:Templates="clr-namespace:Finanzas.Pages.Templates"
              Title="DetailTopicPage"
+             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              Shell.NavBarIsVisible="False">
-    <VerticalStackLayout>
-        <ImageButton Source="left"
-             VerticalOptions="Start"
-             HorizontalOptions="Start"
-             Margin="15"
-             HeightRequest="30"
-             Clicked="ImageButton_Clicked"
-             WidthRequest="30">
-            <ImageButton.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
-            </ImageButton.Behaviors>
+    <ContentPage.Behaviors>
+        <Toolkit:StatusBarBehavior StatusBarColor="{StaticResource White}" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="280"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="36, 48, 0, 0" />
+            </Style>
+
+            <Style x:Key="SuggestedContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="36, 24, 0, 24" />
+            </Style>
+
+            <Style x:Key="SearchContainerStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="52" />
+                <Setter Property="WidthRequest" Value="52" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+            </Style>
+
+            <Color x:Key="SearchBackgroundColor">#868ACB</Color>
+
+            <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="12, 24, 12, 0" />
+            </Style>
+
+            <Style x:Key="RecentChatAdornerStyle" TargetType="BoxView">
+                <Setter Property="Color" Value="White" />
+                <Setter Property="CornerRadius" Value="18, 18, 0, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="Auto, *, *">
+        <ImageButton 
+            Source="left"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Margin="15"
+            HeightRequest="30"
+            Clicked="ImageButton_Clicked"
+            WidthRequest="30">
+            <ImageButton.Behaviors>
+                <Toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+            </ImageButton.Behaviors>
         </ImageButton>
-    </VerticalStackLayout>
+
+        <Label
+            Grid.Row="0"
+            Text="Ecuaciones de bonos" 
+            HorizontalOptions="Center" 
+            FontSize="20" 
+            TextColor="{StaticResource Primary}" 
+            Padding="0,15"/>
+
+        <ScrollView 
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Margin="5">
+
+            <VerticalStackLayout Spacing="10">
+
+                <Label 
+                    FontSize="14"
+                    Margin="15"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="FillAndExpand"
+                    LineBreakMode="WordWrap"
+                    LineHeight="1.5"
+                    WidthRequest="300"
+                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui. Suspendisse ultrices gravida dictum fusce. Dui vivamus arcu felis bibendum ut tristique."/>
+
+                <Material:ButtonView
+                    WidthRequest="325"
+                    HeightRequest="60"
+                    BackgroundColor="{StaticResource Secondary}"
+                    Tapped="ButtonView_Tapped">
+
+                    <HorizontalStackLayout Padding="50,0,0,0">
+                        <Image Source="money_bag.png"
+                           HorizontalOptions="Center"
+                           Margin="10,0,0,0"/>
+                        <Label 
+                            Text="Valuación básica" 
+                            HorizontalOptions="Center" 
+                            Padding="10,8,0,0"
+                            TextColor="Black"
+                            FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                </Material:ButtonView>
+
+                <Material:ButtonView
+                    WidthRequest="325"
+                    HeightRequest="60"
+                    BackgroundColor="{StaticResource Secondary}">
+
+                    <HorizontalStackLayout Padding="50,0,0,0">
+                        <Image Source="money_bag.png"
+                           HorizontalOptions="Center"
+                           Margin="10,0,0,0"/>
+                        <Label 
+                            Text="Valuación básica" 
+                            HorizontalOptions="Center" 
+                            Padding="10,8,0,0"
+                            TextColor="Black"
+                            FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                </Material:ButtonView>
+
+                <Material:ButtonView
+                    WidthRequest="325"
+                    HeightRequest="60"
+                    BackgroundColor="{StaticResource Secondary}">
+
+                    <HorizontalStackLayout Padding="50,0,0,0">
+                        <Image Source="money_bag.png"
+                           HorizontalOptions="Center"
+                           Margin="10,0,0,0"/>
+                        <Label 
+                            Text="Valuación básica" 
+                            HorizontalOptions="Center" 
+                            Padding="10,8,0,0"
+                            TextColor="Black"
+                            FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                </Material:ButtonView>
+
+                <Material:ButtonView
+                    WidthRequest="325"
+                    HeightRequest="60"
+                    BackgroundColor="{StaticResource Secondary}">
+
+                    <HorizontalStackLayout Padding="50,0,0,0">
+                        <Image Source="money_bag.png"
+                           HorizontalOptions="Center"
+                           Margin="10,0,0,0"/>
+                        <Label 
+                            Text="Valuación básica" 
+                            HorizontalOptions="Center" 
+                            Padding="10,8,0,0"
+                            TextColor="Black"
+                            FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                </Material:ButtonView>
+                <Label 
+                    Text="Conceptos relacionados" 
+                    HorizontalOptions="Center" 
+                    FontSize="20" 
+                    FontAttributes="Bold"
+                    TextColor="Black" 
+                    Padding="0,15"/>
+                
+                <CollectionView ItemsSource="{Binding Concepts}"
+                                BackgroundColor="Transparent"
+                                Grid.Row="2">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                            Orientation="Vertical"
+                            ItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Templates:ConceptItemTemplate/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
