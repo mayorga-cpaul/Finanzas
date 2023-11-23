@@ -1,4 +1,6 @@
-﻿namespace Finanzas.ViewModels;
+﻿using Finanzas.Constanst;
+
+namespace Finanzas.ViewModels;
 
 public partial class HomePageViewModel : ObservableObject
 {
@@ -30,11 +32,12 @@ public partial class HomePageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public async Task DetailAsync(Topic Topic)
+    public async Task DetailAsync(Topic SelectedTopic)
     {
-        if (Topic  != null)
+        if (SelectedTopic  != null)
         {
-            await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(Topic)).Value(Topic));
+            ConstantsFor.TopicId = SelectedTopic.TopicId;
+            await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
         }
     }
 

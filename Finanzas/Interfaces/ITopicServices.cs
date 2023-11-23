@@ -6,7 +6,7 @@ public interface ITopicServices
 
     IEnumerable<Concept> GetPopularConcepts(int Count = 15);
 
-    IEnumerable<Concept> SearchConcept(string SearchTerm);
+    IEnumerable<Concept> SearchConcept(string SearchTerm = "");
 
     Concept GetConceptById(int ConceptId);
 }

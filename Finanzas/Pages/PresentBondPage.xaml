@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finanzas.Pages.PresentBondPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Title="PresentBondPage">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White"
+                               StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+            <ImageButton 
+            Source="left"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Margin="15"
+            HeightRequest="30"
+            WidthRequest="30"
+            Clicked="ImageButton_Clicked">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+                </ImageButton.Behaviors>
+
+            </ImageButton>
+            <micro:ChartView x:Name="chartBond"
+                         BackgroundColor="White"
+                         HeightRequest="400" 
+                         Margin="0, 0"/>
+
+            <material:TextField WidthRequest="325" x:Name="TxtValoPar" Title="Valor a la par" Keyboard="Numeric"/>
+
+            <Button 
+            BackgroundColor="{StaticResource Secondary}"
+            CornerRadius="20"
+            WidthRequest="325"
+            Text="Calcular"
+            TextColor="Black"
+            FontSize="17"
+            FontAttributes="Bold"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

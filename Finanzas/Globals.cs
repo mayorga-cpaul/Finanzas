@@ -14,3 +14,4 @@ global using Microsoft.Extensions.Logging;
 global using Finanzas.Equations;
 global using Finanzas.Tools;
 global using Finanzas.Results;
+global using Mopups.Services;

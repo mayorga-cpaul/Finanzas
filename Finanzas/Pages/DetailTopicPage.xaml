@@ -60,7 +60,7 @@
 
         <Label
             Grid.Row="0"
-            Text="Ecuaciones de bonos" 
+            Text="{Binding SelectedTopic.Name}" 
             HorizontalOptions="Center" 
             FontSize="20" 
             TextColor="{StaticResource Primary}" 
@@ -82,7 +82,7 @@
                     LineBreakMode="WordWrap"
                     LineHeight="1.5"
                     WidthRequest="300"
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui. Suspendisse ultrices gravida dictum fusce. Dui vivamus arcu felis bibendum ut tristique."/>
+                    Text="{Binding SelectedTopic.Description}"/>
 
                 <Material:ButtonView
                     WidthRequest="325"
@@ -104,10 +104,12 @@
 
                 </Material:ButtonView>
 
+
                 <Material:ButtonView
                     WidthRequest="325"
                     HeightRequest="60"
-                    BackgroundColor="{StaticResource Secondary}">
+                    BackgroundColor="{StaticResource Secondary}"
+                    Tapped="PresentValuesTapped">
 
                     <HorizontalStackLayout Padding="50,0,0,0">
                         <Image Source="money_bag.png"
@@ -123,43 +125,6 @@
 
                 </Material:ButtonView>
 
-                <Material:ButtonView
-                    WidthRequest="325"
-                    HeightRequest="60"
-                    BackgroundColor="{StaticResource Secondary}">
-
-                    <HorizontalStackLayout Padding="50,0,0,0">
-                        <Image Source="money_bag.png"
-                           HorizontalOptions="Center"
-                           Margin="10,0,0,0"/>
-                        <Label 
-                            Text="Valuación básica" 
-                            HorizontalOptions="Center" 
-                            Padding="10,8,0,0"
-                            TextColor="Black"
-                            FontAttributes="Bold"/>
-                    </HorizontalStackLayout>
-
-                </Material:ButtonView>
-
-                <Material:ButtonView
-                    WidthRequest="325"
-                    HeightRequest="60"
-                    BackgroundColor="{StaticResource Secondary}">
-
-                    <HorizontalStackLayout Padding="50,0,0,0">
-                        <Image Source="money_bag.png"
-                           HorizontalOptions="Center"
-                           Margin="10,0,0,0"/>
-                        <Label 
-                            Text="Valuación básica" 
-                            HorizontalOptions="Center" 
-                            Padding="10,8,0,0"
-                            TextColor="Black"
-                            FontAttributes="Bold"/>
-                    </HorizontalStackLayout>
-
-                </Material:ButtonView>
                 <Label 
                     Text="Conceptos relacionados" 
                     HorizontalOptions="Center" 

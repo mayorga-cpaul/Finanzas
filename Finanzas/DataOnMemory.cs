@@ -5,11 +5,11 @@ public static class DataOnMemory
     public static IEnumerable<Topic> Topics =>
         new List<Topic>()
         {
-            new Topic() { TopicId= 1, Color = new Color(150, 150, 130),  Name ="Bonos", Image = "business.png", Description="Sección de bonos sobre inversiones en bonos", ReadTime="10 min",
+            new Topic() { TopicId= 1, Color = new Color(150, 150, 130),  Name ="Secretos de los Bonos", Image = "business.png", Description="Los bonos son instrumentos financieros de deuda utilizados tanto por gobiernos como por empresas para recaudar capital. Estos instrumentos representan una forma de préstamo en la que el emisor (ya sea un gobierno o una entidad corporativa) recibe fondos de los inversionistas a cambio de pagos de intereses periódicos y la devolución del principal en una fecha de vencimiento predeterminada.", ReadTime="10 min",
                 Concepts = Concepts.Take(15)
             },
             
-            new Topic() { TopicId= 2, Color = new Color(100, 128, 128),  Name="Acciones", Image = "finance.png", Description="Sección de acciones en el mercado financiero", ReadTime="15 min",
+            new Topic() { TopicId= 2, Color = new Color(100, 128, 128),  Name="Acciones", Image = "finance.png", Description="En finanzas, las acciones representan una forma de propiedad en una empresa. Cuando una empresa decide financiarse emitiendo acciones, está dividiendo la propiedad de la empresa en pequeñas partes llamadas acciones. Estas acciones son entonces vendidas a inversores en el mercado de valores.", ReadTime="15 min",
                 Concepts = Concepts.Skip(15).Take(15)
             },
             

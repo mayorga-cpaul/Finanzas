@@ -1,4 +1,6 @@
-﻿namespace Finanzas.Extensions;
+﻿using Mopups.Services;
+
+namespace Finanzas.Extensions;
 
 public static class ServicesExtensions
 {
@@ -6,6 +8,9 @@ public static class ServicesExtensions
     {
         Builder.Services.AddScoped<INavigationServices, MauiNavigationServices>();
         Builder.Services.AddScoped<ITopicServices, TopicServices>();
+        Builder.Services.AddSingleton(MopupService.Instance);
+
+
         return Builder;
     }
 }

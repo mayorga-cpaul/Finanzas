@@ -28,4 +28,9 @@ public partial class DetailTopicPage : ContentPage
     {
         await Shell.Current.GoToAsync($"{nameof(BondPage)}");
     }
+
+    private async void PresentValuesTapped(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"{nameof(PresentBondPage)}");
+    }
 }
