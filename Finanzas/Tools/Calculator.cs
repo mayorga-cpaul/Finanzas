@@ -104,4 +104,39 @@ public static class Calculator
 
         return Entries;
     }
+
+
+
+    public static (bool, double, string) CalculateOperatingLeverage(this OperatingLeverage Financial)
+    {
+        double numerador = Financial.Ventas * (Financial.PrecioVenta - Financial.CostoVariable);
+        double denominador = Financial.Ventas * (Financial.PrecioVenta - Financial.CostoVariable) - Financial.CostoFijo;
+
+        if (denominador != 0)
+        {
+            double margenContribucion = numerador / denominador;
+            string recomendacion = ObtenerRecomendacion(margenContribucion);
+            return (true, margenContribucion, recomendacion);
+        }
+        else
+        {
+            return (false, double.NaN, "No se puede calcular el apalancamiento operativo debido a un denominador cero.");
+        }
+    }
+
+    private static string ObtenerRecomendacion(double margenContribucion)
+    {
+        if (margenContribucion > 1)
+        {
+            return "El apalancamiento operativo es alto. La empresa muestra una fuerte sensibilidad a las variaciones en las ventas. Se sugiere una revisión detallada de la estructura de costos, considerando posibles ajustes para mejorar la eficiencia operativa y reducir la exposición al riesgo.";
+        }
+        else if (margenContribucion < 1)
+        {
+            return "El apalancamiento operativo es bajo. La empresa tiene una menor dependencia de costos fijos, proporcionando flexibilidad en situaciones de fluctuaciones en las ventas. Aunque esto puede reducir el riesgo financiero, es importante evaluar las oportunidades para mejorar la rentabilidad mediante estrategias de crecimiento y eficiencia en los costos variables.";
+        }
+        else
+        {
+            return "El apalancamiento operativo es igual a 1. La empresa tiene un equilibrio entre costos fijos y variables. Se sugiere monitorear de cerca la estructura de costos y realizar ajustes según sea necesario para mantener un equilibrio saludable.";
+        }
+    }
 }

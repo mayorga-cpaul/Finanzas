@@ -10,6 +10,7 @@ public static class PagesExtensions
         Builder.Services.AddTransient<DetailTopicPage>();
         Builder.Services.AddSingleton<BondPage>();
         Builder.Services.AddSingleton<PresentBondPage>();
+        Builder.Services.AddSingleton<FinancialAppeceamentPage>();
 
         return Builder;
     }
