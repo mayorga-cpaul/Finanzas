@@ -139,4 +139,38 @@ public static class Calculator
             return "El apalancamiento operativo es igual a 1. La empresa tiene un equilibrio entre costos fijos y variables. Se sugiere monitorear de cerca la estructura de costos y realizar ajustes según sea necesario para mantener un equilibrio saludable.";
         }
     }
+
+
+    public static (bool, double, string) CalculateFinancialLeverage(this FinancialAppeceament Financial)
+    {
+        double impuestos = Financial.UAII;
+        double denominador = Financial.UAII - Financial.Intereses - (Financial.Depreciacion * (1 / (1 - Financial.TasaImpuestos)));
+
+        if (denominador != 0)
+        {
+            double apalancamientoFinanciero = (Financial.UAII) / denominador;
+            string recomendacion = GetRecommendationGAF(apalancamientoFinanciero);
+            return (true, apalancamientoFinanciero, recomendacion);
+        }
+        else
+        {
+            return (false, double.NaN, "No se puede calcular el apalancamiento financiero debido a un denominador cero.");
+        }
+    }
+
+    private static string GetRecommendationGAF(double financialLeverage)
+    {
+        if (financialLeverage > 1)
+        {
+            return "El apalancamiento financiero es alto. La empresa está utilizando un nivel significativo de deuda para financiar sus operaciones. Se recomienda evaluar cuidadosamente la estructura de capital y considerar estrategias para gestionar el riesgo asociado con la deuda.";
+        }
+        else if (financialLeverage < 1)
+        {
+            return "El apalancamiento financiero es bajo. La empresa muestra una menor dependencia de la deuda para financiar sus operaciones. Esto puede indicar una posición financiera más sólida, pero es importante equilibrar el uso de la deuda para aprovechar oportunidades de crecimiento.";
+        }
+        else
+        {
+            return "El apalancamiento financiero es igual a 1. La empresa tiene un equilibrio en la utilización de la deuda para financiar sus operaciones. Se sugiere monitorear de cerca la estructura de capital y ajustar según sea necesario para optimizar la eficiencia financiera.";
+        }
+    }
 }

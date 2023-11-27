@@ -36,8 +36,17 @@ public partial class HomePageViewModel : ObservableObject
     {
         if (SelectedTopic  != null)
         {
-            ConstantsFor.TopicId = SelectedTopic.TopicId;
-            await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
+            if (SelectedTopic.Name.Equals("Apalancamiento"))
+            {
+                ConstantsFor.TopicId = SelectedTopic.TopicId;
+                await NavigationServices.NavigateToAsync(nameof(DetailleversPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
+            }
+            else if (SelectedTopic.Name.Equals("Secretos de los Bonos"))
+            {
+                ConstantsFor.TopicId = SelectedTopic.TopicId;
+                await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
+            }
+
         }
     }
 

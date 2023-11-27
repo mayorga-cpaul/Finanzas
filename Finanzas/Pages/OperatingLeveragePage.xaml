@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             x:Class="Finanzas.Pages.OperatingLeveragePage"
+             xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
+             Title="FinancialAppeceamentPage">
+
+    <ContentPage.Behaviors>
+        <Toolkit:StatusBarBehavior StatusBarColor="White"
+                                   StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    
+    <ScrollView>
+
+        <VerticalStackLayout Spacing="10">
+
+            <ImageButton 
+                    Source="left"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    Margin="15"
+                    HeightRequest="30"
+                    Clicked="ImageButton_Clicked"
+                    WidthRequest="30">
+                <ImageButton.Behaviors>
+                    <Toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            
+            <Label
+              Margin="20,20,20, 20"
+              Grid.ColumnSpan="2"
+              x:Name="TxtIntro"
+              FontSize="14"
+              HorizontalTextAlignment="Center"
+              VerticalTextAlignment="Center"
+              LineHeight="1.5"
+              Text="el apalancamiento operativo es un concepto importante en la gestión financiera y puede afectar la rentabilidad y la estabilidad financiera de una empresa en función de la relación entre sus costos fijos y variables."/>
+
+            <Material:TextField WidthRequest="325" x:Name="TxtVentas" Title="Ventas" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtPrecioVenta" Title="Precio de venta" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtCostoVariable" Title="Costo variable" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtCostoFijo" Title="Costo fijo" Keyboard="Numeric"/>
+
+            <Button 
+              BackgroundColor="{StaticResource Secondary}"
+              CornerRadius="20"
+              WidthRequest="325"
+              Text="Calcular"
+              TextColor="Black"
+              FontSize="17"
+              Clicked="CalculateClicked"
+              FontAttributes="Bold"/>
+
+
+            <Label 
+              x:Name="TxtValue"
+              Text="El resultado es: ...." 
+              TextColor="Black" 
+              FontAttributes="Bold"
+              FontSize="25"
+              VerticalTextAlignment="Center"
+              HorizontalTextAlignment="Center"/>
+
+            <Label
+              Margin="20,20,20,20"
+              Grid.ColumnSpan="2"
+              x:Name="TxtExplanation"
+              FontSize="14"
+              HorizontalTextAlignment="Center"
+              VerticalTextAlignment="Center"
+              LineHeight="1.5"
+              Text="Las empresas incurren en dos tipos principales de costos: costos fijos y costos variables. Los costos fijos son aquellos que no cambian con el nivel de producción o ventas de la empresa, como el alquiler de instalaciones, salarios del personal administrativo, y el costo de los equipos. Por otro lado, los costos variables varían directamente con el nivel de producción o ventas, como los materiales, la mano de obra directa y otros gastos directamente relacionados con la producción."/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

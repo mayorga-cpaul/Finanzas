@@ -2,11 +2,11 @@ using Mopups.Interfaces;
 
 namespace Finanzas.Pages;
 
-public partial class FinancialAppeceamentPage : ContentPage
+public partial class OperatingLeveragePage : ContentPage
 {
     private readonly IPopupNavigation PopupNavigation;
-   
-    public FinancialAppeceamentPage(IPopupNavigation PopupNavigation)
+
+    public OperatingLeveragePage(IPopupNavigation PopupNavigation)
     {
         InitializeComponent();
         this.PopupNavigation = PopupNavigation;
@@ -14,22 +14,22 @@ public partial class FinancialAppeceamentPage : ContentPage
 
     private void CalculateClicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(TxtUAII.Text) ||
-            string.IsNullOrEmpty(TxtRate.Text) ||
-            string.IsNullOrEmpty(TxtTasa.Text) ||
-            string.IsNullOrEmpty(TxtDepreciation.Text))
+        if (string.IsNullOrEmpty(TxtVentas.Text) ||
+            string.IsNullOrEmpty(TxtPrecioVenta.Text) ||
+            string.IsNullOrEmpty(TxtCostoVariable.Text) ||
+            string.IsNullOrEmpty(TxtCostoFijo.Text))
         {
             PopupNavigation.PushAsync(new ErrorPopup("Campos vacíos", "Por favor asegurese de rellenar todos los campos"));
         }
         else
         {
-            FinancialAppeceament FinancialAppeceament = new(
-                double.Parse(TxtUAII.Text),
-                double.Parse(TxtTasa.Text),
-                double.Parse(TxtDepreciation.Text),
-                double.Parse(TxtRate.Text));
+            OperatingLeverage FinancialAppeceament = new(
+                double.Parse(TxtVentas.Text),
+                double.Parse(TxtPrecioVenta.Text),
+                double.Parse(TxtCostoVariable.Text),
+                double.Parse(TxtCostoFijo.Text));
 
-            (bool IsValid, double Value, string Explanation) = FinancialAppeceament.CalculateFinancialLeverage();
+            (bool IsValid, double Value, string Explanation) = FinancialAppeceament.CalculateOperatingLeverage();
 
             if (!IsValid)
             {

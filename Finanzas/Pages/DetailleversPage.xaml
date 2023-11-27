@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Finanzas.Pages.DetailTopicPage"
+             x:Class="Finanzas.Pages.DetailleversPage"
+             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:Templates="clr-namespace:Finanzas.Pages.Templates"
-             Title="DetailTopicPage"
-             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             >
     <ContentPage.Behaviors>
         <Toolkit:StatusBarBehavior StatusBarColor="{StaticResource White}" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
@@ -43,7 +43,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <Grid RowDefinitions="Auto, *, *">
         <ImageButton 
             Source="left"
@@ -88,14 +88,35 @@
                     WidthRequest="325"
                     HeightRequest="60"
                     BackgroundColor="{StaticResource Secondary}"
-                    Tapped="ButtonView_Tapped">
+                    Tapped="FinancialAppeceamentTapped">
 
                     <HorizontalStackLayout Padding="50,0,0,0">
                         <Image Source="money_bag.png"
                            HorizontalOptions="Center"
                            Margin="10,0,0,0"/>
                         <Label 
-                            Text="Valuación básica" 
+                            Text="Apalancamiento operativo" 
+                            HorizontalOptions="Center" 
+                            Padding="10,8,0,0"
+                            TextColor="Black"
+                            FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                </Material:ButtonView>
+
+
+                <Material:ButtonView
+                    WidthRequest="325"
+                    HeightRequest="60"
+                    BackgroundColor="{StaticResource Secondary}"
+                    Tapped="OperatingLeverageTapped">
+
+                    <HorizontalStackLayout Padding="50,0,0,0">
+                        <Image Source="money_bag.png"
+                           HorizontalOptions="Center"
+                           Margin="10,0,0,0"/>
+                        <Label 
+                            Text="Apalancamiento operativo" 
                             HorizontalOptions="Center" 
                             Padding="10,8,0,0"
                             TextColor="Black"
@@ -111,7 +132,7 @@
                     FontAttributes="Bold"
                     TextColor="Black" 
                     Padding="0,15"/>
-                
+
                 <CollectionView ItemsSource="{Binding Concepts}"
                                 BackgroundColor="Transparent"
                                 Grid.Row="2">

@@ -3,6 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Finanzas.Pages.FinancialAppeceamentPage"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False"
+             xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="FinancialAppeceamentPage">
-    
+    <ContentPage.Behaviors>
+        <Toolkit:StatusBarBehavior StatusBarColor="White"
+                                   StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    <ScrollView>
+
+        <VerticalStackLayout Spacing="10">
+            <ImageButton 
+                   Source="left"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start"
+                   Margin="15"
+                   HeightRequest="30"
+                   Clicked="ImageButton_Clicked"
+                   WidthRequest="30">
+                <ImageButton.Behaviors>
+                    <Toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <Label
+                Margin="20,20,20, 20"
+                Grid.ColumnSpan="2"
+                x:Name="TxtIntro"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                LineHeight="1.5"
+                Text="El apalancamiento financiero es una estrategia que las empresas y los inversores utilizan para aumentar su capacidad de inversión y amplificar los rendimientos potenciales. Se refiere al uso de deuda o fondos prestados para financiar una inversión o una operación comercial con la esperanza de que los beneficios generados sean mayores que el costo de la deuda."/>
+
+            <material:TextField WidthRequest="325" x:Name="TxtUAII" Title="UAII" Keyboard="Numeric"/>
+            <material:TextField WidthRequest="325" x:Name="TxtTasa" Title="Intereses" Keyboard="Numeric"/>
+            <material:TextField WidthRequest="325" x:Name="TxtDepreciation" Title="Depreciación" Keyboard="Numeric"/>
+            <material:TextField WidthRequest="325" x:Name="TxtRate" Title="Tasa de impuestos" Keyboard="Numeric"/>
+            
+            <Button 
+                BackgroundColor="{StaticResource Secondary}"
+                CornerRadius="20"
+                WidthRequest="325"
+                Text="Calcular"
+                TextColor="Black"
+                FontSize="17"
+                Clicked="CalculateClicked"
+                FontAttributes="Bold"/>
+
+
+            <Label 
+                x:Name="TxtValue"
+                Text="El resultado es: ...." 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                FontSize="25"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>
+            
+            <Label
+                Margin="20,20,20,20"
+                Grid.ColumnSpan="2"
+                x:Name="TxtExplanation"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                LineHeight="1.5"
+                Text="Al invertir en bonos, factores como el riesgo de tasa de interés, riesgo crediticio y duración deben considerarse. Los bonos son ideales para inversores que buscan ingresos regulares y preservación de capital, siendo una herramienta valiosa en carteras diversificadas"/>
+
+        </VerticalStackLayout>
+        
+
+    </ScrollView>
 </ContentPage>

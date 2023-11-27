@@ -4,14 +4,15 @@ public static class PagesExtensions
 {
     public static MauiAppBuilder UsePages(this MauiAppBuilder Builder)
     {
-        Builder.Services.AddSingleton<HomePage>();
-        Builder.Services.AddSingleton<SearchEquationPage>();
-        Builder.Services.AddSingleton<DetailConceptPage>();
+        Builder.Services.AddTransient<HomePage>();
+        Builder.Services.AddTransient<SearchEquationPage>();
+        Builder.Services.AddTransient<DetailConceptPage>();
         Builder.Services.AddTransient<DetailTopicPage>();
-        Builder.Services.AddSingleton<BondPage>();
-        Builder.Services.AddSingleton<PresentBondPage>();
-        Builder.Services.AddSingleton<FinancialAppeceamentPage>();
-
+        Builder.Services.AddTransient<BondPage>();
+        Builder.Services.AddTransient<PresentBondPage>();
+        Builder.Services.AddTransient<FinancialAppeceamentPage>();
+        Builder.Services.AddTransient<OperatingLeveragePage>();
+        Builder.Services.AddTransient<DetailleversPage>();
         return Builder;
     }
 }
