@@ -173,4 +173,27 @@ public static class Calculator
             return "El apalancamiento financiero es igual a 1. La empresa tiene un equilibrio en la utilización de la deuda para financiar sus operaciones. Se sugiere monitorear de cerca la estructura de capital y ajustar según sea necesario para optimizar la eficiencia financiera.";
         }
     }
+
+    public static (bool, List<ValuationActions>, string) GetValuationData(this ValuationData data)
+    {
+        var resultados = new List<ValuationActions>();
+
+        for (int t = 1; t <= data.NumeroPeriodos; t++)
+        {
+            var resultado = new ValuationActions
+            {
+                T = t,
+                Do = data.Dividendo,
+                Gt = Math.Pow((1 + data.TasaCrecimientoInicial1), t),
+                Dt = data.Dividendo * Math.Pow((1 + data.TasaCrecimientoInicial1), t),
+                Kst = Math.Pow((1 + data.Rendimiento), t),
+                Presente = data.Dividendo * Math.Pow((1 + data.TasaCrecimientoInicial1),
+                t) / Math.Pow((1 + data.Rendimiento), t)
+            };
+
+            resultados.Add(resultado);
+        }
+
+        return (true, resultados, "");
+    }
 }

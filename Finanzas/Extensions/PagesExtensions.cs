@@ -13,6 +13,8 @@ public static class PagesExtensions
         Builder.Services.AddTransient<FinancialAppeceamentPage>();
         Builder.Services.AddTransient<OperatingLeveragePage>();
         Builder.Services.AddTransient<DetailleversPage>();
+        Builder.Services.AddTransient<DetailActionsPage>();
+        Builder.Services.AddTransient<ActionsPage>();
         return Builder;
     }
 }

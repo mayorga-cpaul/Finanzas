@@ -24,10 +24,6 @@ public class Bond : IEquation
     
     public double ValorPar { get; set; }
 
-    public double YearBondZero => this.CalcularPrecioBono();
-
-    public List<ValorPresenteAnual> valorPresenteAnuals => this.CalcularValorPresente();
-
     public Bond(double PagoInteresAnual, double TasaCupon, int NumeroAniosVencimiento, double ValorPar)
     {
         this.InteresAnual = PagoInteresAnual;

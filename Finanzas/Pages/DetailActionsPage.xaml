@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Finanzas.Pages.DetailleversPage"
-             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             x:Class="Finanzas.Pages.DetailActionsPage"
              xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:Templates="clr-namespace:Finanzas.Pages.Templates"
              Shell.NavBarIsVisible="False"
-             >
+             Title="DetailActionsPage">
     <ContentPage.Behaviors>
         <Toolkit:StatusBarBehavior StatusBarColor="{StaticResource White}" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
@@ -46,100 +46,79 @@
 
     <Grid RowDefinitions="Auto, *, *">
         <ImageButton 
-            Source="left"
-            VerticalOptions="Start"
-            HorizontalOptions="Start"
-            Margin="15"
-            HeightRequest="30"
-            Clicked="ImageButton_Clicked"
-            WidthRequest="30">
+        Source="left"
+        VerticalOptions="Start"
+        HorizontalOptions="Start"
+        Margin="15"
+        HeightRequest="30"
+        Clicked="ImageButton_Clicked"
+        WidthRequest="30">
             <ImageButton.Behaviors>
                 <Toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
             </ImageButton.Behaviors>
         </ImageButton>
 
         <Label
-            Grid.Row="0"
-            Text="{Binding SelectedTopic.Name}" 
-            HorizontalOptions="Center" 
-            FontSize="20" 
-            TextColor="{StaticResource Primary}" 
-            Padding="0,15"/>
+        Grid.Row="0"
+        Text="{Binding SelectedTopic.Name}" 
+        HorizontalOptions="Center" 
+        FontSize="20" 
+        TextColor="{StaticResource Primary}" 
+        Padding="0,15"/>
 
         <ScrollView 
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Margin="5">
+        Grid.Row="1"
+        Grid.RowSpan="2"
+        Margin="5">
 
             <VerticalStackLayout Spacing="10">
 
                 <Label 
-                    FontSize="14"
-                    Margin="15"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"
-                    HorizontalOptions="FillAndExpand"
-                    LineBreakMode="WordWrap"
-                    LineHeight="1.5"
-                    WidthRequest="300"
-                    Text="{Binding SelectedTopic.Description}"/>
+                FontSize="14"
+                Margin="15"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="FillAndExpand"
+                LineBreakMode="WordWrap"
+                LineHeight="1.5"
+                WidthRequest="300"
+                Text="{Binding SelectedTopic.Description}"/>
 
                 <Material:ButtonView
-                    WidthRequest="325"
-                    HeightRequest="60"
-                    BackgroundColor="{StaticResource Secondary}"
-                    Tapped="FinancialAppeceamentTapped">
+                WidthRequest="325"
+                HeightRequest="60"
+                BackgroundColor="{StaticResource Secondary}"
+                Tapped="ButtonView_Tapped">
 
                     <HorizontalStackLayout Padding="50,0,0,0">
                         <Image Source="money_bag.png"
-                           HorizontalOptions="Center"
-                           Margin="10,0,0,0"/>
+                       HorizontalOptions="Center"
+                       Margin="10,0,0,0"/>
                         <Label 
-                            Text="Apalancamiento financiero" 
-                            HorizontalOptions="Center" 
-                            Padding="0,8,0,0"
-                            TextColor="Black"
-                            FontAttributes="Bold"/>
+                        Text="(Comunes) Crecimiento Variable" 
+                        HorizontalOptions="Center" 
+                        Padding="10,8,0,0"
+                        TextColor="Black"
+                        FontAttributes="Bold"/>
                     </HorizontalStackLayout>
 
                 </Material:ButtonView>
-
-
-                <Material:ButtonView
-                    WidthRequest="325"
-                    HeightRequest="60"
-                    BackgroundColor="{StaticResource Secondary}"
-                    Tapped="OperatingLeverageTapped">
-
-                    <HorizontalStackLayout Padding="50,0,0,0">
-                        <Image Source="money_bag.png"
-                           HorizontalOptions="Center"
-                           Margin="10,0,0,0"/>
-                        <Label 
-                            Text="Apalancamiento operativo" 
-                            HorizontalOptions="Center" 
-                            Padding="0,8,0,0"
-                            TextColor="Black"
-                            FontAttributes="Bold"/>
-                    </HorizontalStackLayout>
-
-                </Material:ButtonView>
-
+                
                 <Label 
-                    Text="Conceptos relacionados" 
-                    HorizontalOptions="Center" 
-                    FontSize="20" 
-                    FontAttributes="Bold"
-                    TextColor="Black" 
-                    Padding="0,15"/>
+                Text="Conceptos relacionados" 
+                HorizontalOptions="Center" 
+                FontSize="20" 
+                FontAttributes="Bold"
+                TextColor="Black" 
+                Padding="0,15"/>
 
                 <CollectionView ItemsSource="{Binding Concepts}"
-                                BackgroundColor="Transparent"
-                                Grid.Row="2">
+                            BackgroundColor="Transparent"
+                            Grid.Row="2">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout
-                            Orientation="Vertical"
-                            ItemSpacing="8"/>
+                        Orientation="Vertical"
+                        ItemSpacing="8"/>
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>

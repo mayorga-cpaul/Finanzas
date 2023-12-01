@@ -45,6 +45,10 @@ public partial class HomePageViewModel : ObservableObject
             {
                 ConstantsFor.TopicId = SelectedTopic.TopicId;
                 await NavigationServices.NavigateToAsync(nameof(DetailTopicPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
+            }else if (SelectedTopic.Name.Equals("Acciones"))
+            {
+                ConstantsFor.TopicId = SelectedTopic.TopicId;
+                await NavigationServices.NavigateToAsync(nameof(DetailActionsPage), Key(nameof(SelectedTopic)).Value(SelectedTopic));
             }
 
         }

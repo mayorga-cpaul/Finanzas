@@ -17,6 +17,4 @@ public class FinancialAppeceament
     public double Depreciacion { get; set; }
     
     public double TasaImpuestos { get; set; }
-
-    public (bool, double, string) ResultGAF => this.ResultGAF;
 }

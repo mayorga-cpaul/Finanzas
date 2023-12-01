@@ -29,9 +29,9 @@ public partial class BondPage : ContentPage
         else
         {
             var Bond = new Bond(
-                Double.Parse(TxtInteresAnual.Text),
-                Double.Parse(TxtTasaCupon.Text),
-                Int32.Parse(TxtAños.Text), Double.Parse(TxtValoPar.Text));
+                double.Parse(TxtInteresAnual.Text),
+                double.Parse(TxtTasaCupon.Text),
+                int.Parse(TxtAños.Text), double.Parse(TxtValoPar.Text));
             
             var Result = Math.Round(Bond.CalcularPrecioBono(), 2);
 

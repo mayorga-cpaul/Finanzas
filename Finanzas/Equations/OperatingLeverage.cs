@@ -17,6 +17,4 @@ public class OperatingLeverage
     public double CostoVariable { get; set; }
     
     public double CostoFijo { get; set; }
-
-    public (bool, double, string) ResultGAO => this.CalculateOperatingLeverage();
 }

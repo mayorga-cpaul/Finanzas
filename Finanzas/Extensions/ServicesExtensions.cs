@@ -9,8 +9,6 @@ public static class ServicesExtensions
         Builder.Services.AddScoped<INavigationServices, MauiNavigationServices>();
         Builder.Services.AddScoped<ITopicServices, TopicServices>();
         Builder.Services.AddSingleton(MopupService.Instance);
-
-
         return Builder;
     }
 }

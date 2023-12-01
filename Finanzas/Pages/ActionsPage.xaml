@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finanzas.Pages.ActionsPage"
+             xmlns:Toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:Material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False"
+             Title="ActionsPage">
+    <ContentPage.Behaviors>
+        <Toolkit:StatusBarBehavior StatusBarColor="White"
+                                   StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    <ScrollView>
+
+        <VerticalStackLayout Spacing="10">
+            <ImageButton 
+                   Source="left"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start"
+                   Margin="15"
+                   HeightRequest="30"
+                   Clicked="ImageButton_Clicked"
+                   WidthRequest="30">
+                <ImageButton.Behaviors>
+                    <Toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <Label
+                Margin="20,20,20, 20"
+                Grid.ColumnSpan="2"
+                x:Name="TxtIntro"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                LineHeight="1.5"
+                Text="Las acciones de una empresa pueden experimentar crecimiento en su valor a lo largo del tiempo debido al éxito y crecimiento de la empresa en sí. Este crecimiento puede estar influenciado por factores como el aumento de las ganancias, la expansión del negocio, el lanzamiento de nuevos productos, entre otros.."/>
+
+            <Material:TextField WidthRequest="325" x:Name="TxtDividendo" Title="D1 Dividendo" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtRendimiento" Title="Ks Rendimiento" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtCrecimientoInicial" Title="G1 Tasa de crecimiento inicial" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtPeriodos" Title="N Número de periodos" Keyboard="Numeric"/>
+            <Material:TextField WidthRequest="325" x:Name="TxtCrecimientoFinal" Title="G2 Tasa de crecimiento final" Keyboard="Numeric"/>
+
+            <Button 
+                BackgroundColor="{StaticResource Secondary}"
+                CornerRadius="20"
+                WidthRequest="325"
+                Text="Calcular"
+                TextColor="Black"
+                FontSize="17"
+                Clicked="Button_Clicked"
+                FontAttributes="Bold"/>
+
+            <ScrollView 
+                Orientation="Both">
+                <Material:DataGrid 
+                    x:Name="dgData"
+                    BorderColor="{StaticResource Secondary}"
+                    BackgroundColor="White"
+                    CornerRadius="30"
+                    UseAutoColumns="True" 
+                    Margin="30" 
+                    HorizontalOptions="Center">
+                </Material:DataGrid>
+            </ScrollView>
+            
+            <Label 
+                x:Name="TxtValue"
+                Text="El resultado es: ...." 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                FontSize="25"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                Margin="20,20,20,20"
+                Grid.ColumnSpan="2"
+                x:Name="TxtExplanation"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                LineHeight="1.5"
+                Text="El término variable sugiere que el crecimiento no es constante y puede cambiar en diferentes períodos. Esto puede deberse a fluctuaciones en el desempeño de la empresa, condiciones del mercado, cambios en la industria, entre otros factores."/>
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+</ContentPage>
